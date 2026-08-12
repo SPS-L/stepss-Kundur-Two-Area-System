@@ -18,17 +18,17 @@ The system comprises two symmetric areas connected by a weak tie, each with two 
 
 ## Quick Start
 
-With [PyRAMSES](https://stepss.sps-lab.org/):
+With [stepss](https://stepss.sps-lab.org/):
 
 ```python
-import pyramses
-case = pyramses.cfg()
+import stepss
+case = stepss.cfg()
 case.addData('lf.dat')
 case.addData('dyn.dat')          # or dyn_noPSS.dat
 case.addData('solveroptions.dat')
 case.addDst('disturb.dst')
 case.addObs('obs.dat')
-sim = pyramses.sim()
+sim = stepss.sim()
 sim.execSim(case)
 ```
 
