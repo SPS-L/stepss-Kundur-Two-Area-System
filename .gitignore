@@ -1,0 +1,22 @@
+# Simulation outputs
+*.trj
+*.cur
+*.trace
+temp_*
+
+# Binaries
+*.exe
+*.dll
+
+# Notebook and Claude runtime files
+.ipynb_checkpoints/
+.claude/
+.mcp.json
+
+# RAMSES full-version licence record: personal, never commit
+license.dat
+
+# Simulation run products
+*.cont
+*.disc
+*.log
