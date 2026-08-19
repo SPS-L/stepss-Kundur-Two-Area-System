@@ -15,6 +15,7 @@ The system comprises two symmetric areas connected by a weak tie, each with two 
 | `obs.dat` | Observables selection |
 | `solveroptions.dat` | Solver settings |
 | `sim.cfg` | RAMSES Java GUI simulation configuration (file paths must be adapted locally) |
+| `kundur.svg` | One-line diagram template, with `%A`-`%U` placeholder codes substituted by the Helios `1` command |
 
 ## Quick Start
 
@@ -34,6 +35,27 @@ sim.execSim(case)
 
 Or run the RAMSES executable directly, adapting the file paths in `sim.cfg`. Run from the repository root so that relative paths resolve.
 
+### One-line diagram
+
+`kundur.svg` is a one-line diagram template in the HELIOS placeholder format, laid out after
+the classic two-area scheme. Solving the power flow and rendering the template fills in
+every number:
+
+```python
+from stepss.helios import HeliosSession
+
+with HeliosSession() as pf:
+    pf.load_file("lf.dat")
+    pf.solve()
+    pf.write_diagram("kundur.svg", "kundur_solved.svg")
+```
+
+The same substitution is available from the HELIOS text interface with the `1` command. The
+template annotates the voltage magnitude and phase angle at all 11 buses, the active and
+reactive output of G1 to G4, the load and the shunt compensation at buses 7 and 9, and the
+active and reactive flow at both ends of all 8 lines and 4 step-up transformers. Flows are
+given at the bus end shown, positive out of the bus into the branch.
+
 ## Status
 
 **Runs.** Both dynamic data variants initialise and simulate.
@@ -50,7 +72,7 @@ up to that instant is in the trajectory file and is usable.
 
 `InterAreaOscillations.ipynb` runs both cases and compares them.
 
-Verified against **stepss 3.70** (RAMSES 3.70, HELIOS 1.4.1) on Linux.
+Verified against **stepss 3.76** (RAMSES 3.76, HELIOS 1.4.1) on Linux.
 
 ## Documentation
 
