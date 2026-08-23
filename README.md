@@ -15,7 +15,6 @@ The system comprises two symmetric areas connected by a weak tie, each with two 
 | `obs.dat` | Observables selection |
 | `solveroptions.dat` | Solver settings |
 | `kundur.cfg` | STEPSS scenario file: opens the whole case in the STEPSS GUI with **File > Load configuration**. Paths are relative to this folder, so it travels with a copy or a move |
-| `sim.cfg` | Superseded by `kundur.cfg`. A pre-3.74 GUI configuration holding absolute paths from the machine that wrote it; current STEPSS releases refuse it |
 | `kundur.svg` | One-line diagram template, with `%A`-`%U` placeholder codes substituted by the Helios `1` command |
 
 ## Quick Start
@@ -34,7 +33,9 @@ sim = stepss.sim()
 sim.execSim(case)
 ```
 
-Or run the RAMSES executable directly, adapting the file paths in `sim.cfg`. Run from the repository root so that relative paths resolve.
+Or open `kundur.cfg` in the STEPSS GUI with **File > Load configuration**, which
+fills every slot. Its paths are relative to this folder, so it needs no adapting
+wherever the folder is copied to.
 
 ### One-line diagram
 
