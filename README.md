@@ -14,7 +14,8 @@ The system comprises two symmetric areas connected by a weak tie, each with two 
 | `disturb.dst` | Disturbance scenario: +0.5 pu active-power step on load L9 at t = 1 s, 60 s horizon |
 | `obs.dat` | Observables selection |
 | `solveroptions.dat` | Solver settings |
-| `sim.cfg` | RAMSES Java GUI simulation configuration (file paths must be adapted locally) |
+| `kundur.cfg` | STEPSS scenario file: opens the whole case in the STEPSS GUI with **File > Load configuration**. Paths are relative to this folder, so it travels with a copy or a move |
+| `sim.cfg` | Superseded by `kundur.cfg`. A pre-3.74 GUI configuration holding absolute paths from the machine that wrote it; current STEPSS releases refuse it |
 | `kundur.svg` | One-line diagram template, with `%A`-`%U` placeholder codes substituted by the Helios `1` command |
 
 ## Quick Start
