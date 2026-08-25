@@ -72,9 +72,18 @@ mode is unstable, the machines pull out of step, and the monitoring controller i
 `solveroptions.dat` halts the run rather than integrating past pole slip. Everything recorded
 up to that instant is in the trajectory file and is usable.
 
-`InterAreaOscillations.ipynb` runs both cases and compares them.
+`InterAreaOscillations.ipynb` runs both cases and compares them, then asks the same
+question a second way: Part 3 triggers RAMSES's small-signal analysis with an `EIG`
+disturbance and reads the inter-area mode straight off the eigenvalues, 0.624 Hz at
+zeta = +0.109 with the stabiliser and 0.625 Hz at zeta = -0.023 without it. It plots the
+modes on the complex plane and their mode shapes the way the STEPSS desktop application
+draws them on its Analysis tab.
 
-Verified against **stepss 3.76** (RAMSES 3.76, HELIOS 1.4.1) on Linux.
+That part generates its own `eig.dst`, because `EIG` linearises about whatever state the
+system is in when it fires and so must run under a scenario with no events in it. The file
+is not committed; the GUI writes the same one for itself when you press Run analysis.
+
+Verified against **stepss 3.81** (RAMSES 3.81) on Linux.
 
 ## Documentation
 
